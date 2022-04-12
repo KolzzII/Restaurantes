@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container w-75 pt-4">
+    <h1>{{ restaurante.get_nome() }}</h1>
+    <p class="fs-6">Endereço: {{ restaurante.get_endereco() }}</p>
+    <p class="fs-6">Horário de funcionamento: {{ restaurante.get_horario() }}</p>
+    <hr>
+    <div class="text-center">
+        <img src="{{ restaurante.get_imagem() }}" class="py-3" alt="..." width="600px" height="400px">
+    </div>
+    <hr>
+    <h2 class="text-center">Avaliações</h2>
+    <div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person-circle profile" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                    <h5 class="card-title m-0">{{ restaurante.get_especialista().get_nome() }}</h5>
+                </div>
+                <p class="card-text">{{ restaurante.get_especialista().get_comentario() }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

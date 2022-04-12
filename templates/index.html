@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-center pt-4">
+    {% for restaurante in restaurantes %}
+    <div class="d-inline-flex p-2">
+        <div class="card" style="width: 22rem;">
+            <img src="{{ restaurante.get_imagem() }}" class="card-img-top" alt="..." width="600px" height="200px">
+            <div class="card-body">
+                <h5 class="card-title">{{ restaurante.get_nome() }}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Funcionamento: {{ restaurante.get_horario() }}</li>
+            </ul>
+            <div class="card-body">
+                <a href={{ url_for('exibir_restaurante', id = restaurante.get_id()) }} class="card-link">Ver mais</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
